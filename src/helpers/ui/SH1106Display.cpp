@@ -11,6 +11,7 @@ bool SH1106Display::i2c_probe(TwoWire &wire, uint8_t addr)
 
 bool SH1106Display::begin()
 {
+  
   return display.begin(DISPLAY_ADDRESS, true) && i2c_probe(Wire, DISPLAY_ADDRESS);
 }
 

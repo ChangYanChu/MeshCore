@@ -5,9 +5,11 @@
 #include <helpers/radiolib/RadioLibWrappers.h>
 #include <PromicroBoard.h>
 #include <helpers/radiolib/CustomSX1262Wrapper.h>
+#include <helpers/radiolib/CustomSX1268Wrapper.h>
 #include <helpers/AutoDiscoverRTCClock.h>
 #ifdef DISPLAY_CLASS
-  #include <helpers/ui/SSD1306Display.h>
+  // #include <helpers/ui/SSD1306Display.h>
+  #include <helpers/ui/SH1106Display.h>
   #include <helpers/ui/MomentaryButton.h>
 #endif
 
