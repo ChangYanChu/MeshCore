@@ -107,7 +107,6 @@ void halt() {
 
 void setup() {
   Serial.begin(115200);
-
   board.begin();
 
 #ifdef DISPLAY_CLASS

@@ -10,6 +10,26 @@ ESP32RTCClock fallback_clock;
 AutoDiscoverRTCClock rtc_clock(fallback_clock);
 SensorManager sensors;
 
+#ifdef DISPLAY_CLASS
+// 占位显示屏引脚 (请根据真实硬件修改)，使用 LoRa SPI 时钟与 MOSI 复用：SCK=P_LORA_SCLK, SDA=P_LORA_MOSI
+#ifndef PIN_LCD_CS
+#define PIN_LCD_CS 20
+#endif
+#ifndef PIN_LCD_RST
+#define PIN_LCD_RST 0
+#endif
+#ifndef PIN_LCD_DC
+#define PIN_LCD_DC 1
+#endif
+DISPLAY_CLASS display(PIN_LCD_CS, PIN_LCD_RST, PIN_LCD_DC, P_LORA_SCLK, P_LORA_MOSI);
+
+// 占位用户按键引脚
+#ifndef PIN_USER_BTN
+#define PIN_USER_BTN 21
+#endif
+  MomentaryButton user_btn(PIN_USER_BTN, 1000, true, true);
+#endif
+
 bool radio_init() {
   fallback_clock.begin();
   rtc_clock.begin(Wire);  

@@ -4,9 +4,19 @@
 #include <RadioLib.h>
 #include <helpers/radiolib/RadioLibWrappers.h>
 #include "HT-CT62Board.h"
-#include <helpers/radiolib/CustomSX1262Wrapper.h>
+#include <helpers/radiolib/CustomSX1268Wrapper.h>
 #include <helpers/AutoDiscoverRTCClock.h>
 #include <helpers/SensorManager.h>
+
+#ifdef DISPLAY_CLASS
+  #include <helpers/ui/ST7567.h>
+  #include <helpers/ui/MomentaryButton.h>
+#endif
+
+#ifdef DISPLAY_CLASS
+  extern DISPLAY_CLASS display;
+  extern MomentaryButton user_btn;
+#endif
 
 extern Heltec_CT62_Board board;
 extern WRAPPER_CLASS radio_driver;
